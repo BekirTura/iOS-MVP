@@ -1,11 +1,10 @@
 //
 //  ApiRequest.swift
-//  MvvmExampleSwift5.0
+//  MvpiOS
 //
-//  Created by Bekir on 14.01.2020.
+//  Created by Bekir on 14.02.2020.
 //  Copyright © 2020 Bekir. All rights reserved.
 //
-
 import Alamofire
 
 public protocol BaseApiRequest {
