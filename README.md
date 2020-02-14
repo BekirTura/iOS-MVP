@@ -264,7 +264,7 @@ public class BaseObject:Codable{}
 
 path = model/response
 ```Swift   
-public class GetEventResponse:BaseObject{
+public class GetEventResponse:Codable{
     
     
     var data : [Event]?
