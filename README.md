@@ -280,12 +280,29 @@ public class GetEventResponse:BaseObject{
  path = model/data
 
 ```Swift
-public class Event: BaseObject {
+public class Event:BaseObject {
     var categoryName:String!
     var cityName:String!
-     enum CodingKeys: String, CodingKey {
+    enum CodingKeys: String, CodingKey {
         case categoryName = "CategoryName"
         case cityName = "CityName"
+    }
+    public override init() {
+        super.init()
+        
+    }
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.cityName = try container.decode(String.self, forKey: .cityName)
+        self.categoryName = try container.decode(String.self, forKey: .categoryName)
+        try super.init(from: decoder)
+    }
+    
+    public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder)
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(categoryName, forKey: .categoryName)
+        try container.encode(cityName, forKey: .cityName)
     }
 }
 
