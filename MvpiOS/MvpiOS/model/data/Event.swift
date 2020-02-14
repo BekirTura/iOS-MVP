@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Event: Codable {
+public class Event: Codable {
     var categoryName:String
     var cityName:String
      enum CodingKeys: String, CodingKey {

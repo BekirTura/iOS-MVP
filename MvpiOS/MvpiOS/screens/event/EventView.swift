@@ -9,5 +9,5 @@
 import Foundation
 
 public protocol EventView: BaseView{
-    func onSuccessVideo();
+    func onSuccessVideo(data:[Event]);
 }

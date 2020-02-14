@@ -15,7 +15,7 @@ class EventScreen:BaseScreen<EventPresenter>,EventView{
         presenter =  EventPresenter(baseView: self)
     }
     
-    func onSuccessVideo() {
+    func onSuccessVideo(data:[Event]) {
           
     }
       
