@@ -229,13 +229,15 @@ public class GetEventListApiRequest: BaseApiRequest {
 ```
 * Model
 
-path = model/
 * BaseObject
+
+path = model/
 ```Swift   
 public class BaseObject:Codable{}
 ```
-path = model/response
 * GetEventResponse
+
+path = model/response
 ```Swift   
 public class GetEventResponse:BaseObject{
     
@@ -249,6 +251,7 @@ public class GetEventResponse:BaseObject{
 ``` 
 
 * Event
+
  path = model/data
 
 ```Swift
