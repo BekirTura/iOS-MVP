@@ -29,7 +29,7 @@ class EventScreen:BaseScreen<EventPresenter>,EventView{
     
   
     
-    func onSuccessVideo(data:[Event]) {
+    func onSuccessEventData(data:[Event]) {
           
     }
       

@@ -14,7 +14,7 @@ public class EventPresenter: BasePresenter<EventView> {
     func denemeRequest()  {
         self.restClient.getEventList(successHandler: {(response) in
             if(response.data != nil){
-                self.baseView?.onSuccessVideo(data: response.data!)
+                self.baseView?.onSuccessEventData(data: response.data!)
             }else{
                 self.baseView?.errorPopup(error: response.errorMsg!)
             }
