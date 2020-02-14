@@ -1,0 +1,6 @@
+module Pods_MvpiOS {
+  umbrella header "Pods-MvpiOS-umbrella.h"
+
+  export *
+  module * { export * }
+}
