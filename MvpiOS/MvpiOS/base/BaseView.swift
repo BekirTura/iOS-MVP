@@ -9,4 +9,9 @@
 import Foundation
 
 public protocol BaseView{
+    func loaderStart()
+    
+    func loaderStop()
+    
+    func errorPopup(error:String)
 }

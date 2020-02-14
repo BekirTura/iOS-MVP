@@ -15,15 +15,12 @@ public class EventPresenter: BasePresenter<EventView> {
         self.restClient.getEventList(successHandler: {(response) in
             if(response.data != nil){
                 self.baseView?.onSuccessVideo(data: response.data!)
+            }else{
+                self.baseView?.errorPopup(error: response.errorMsg!)
             }
-        }, failHandler: {_ in
-            
+        }, failHandler: {error in
+            self.baseView?.errorPopup(error: error.localizedDescription)
         })
         
-        self.restClient.postEvent(event: Event(), successHandler: { (response) in
-            
-        }) { (error) in
-        
-        }
     }
 }

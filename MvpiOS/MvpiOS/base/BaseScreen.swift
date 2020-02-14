@@ -40,5 +40,19 @@ class BaseScreen<P>: UIViewController{
     }
 }
 
+extension BaseScreen:BaseView{
+    func loaderStart() {
+        // Spinner Loading Start
+    }
+    
+    func loaderStop() {
+        // Spinner Loading Start
+    }
+    
+    func errorPopup(error:String) {
+        // Service and Phone Error Popup
+    }
+}
+
 
 
