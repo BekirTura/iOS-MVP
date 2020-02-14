@@ -46,6 +46,23 @@ class BaseScreen<P>: UIViewController{
         return baseData
     }
 }
+
+
+extension BaseScreen:BaseView{
+    func loaderStart() {
+        // Spinner Loading Start
+    }
+    
+    func loaderStop() {
+        // Spinner Loading Start
+    }
+    
+    func errorPopup(error:String) {
+        // Service and Phone Error Popup
+    }
+}
+
+
 ```
 
 * BasePresenter
@@ -68,8 +85,13 @@ public class BasePresenter<V>{
 * BaseView
 ```Swift  
 public protocol BaseView{
-    func setUIData();
+    func loaderStart()
+    
+    func loaderStop()
+    
+    func errorPopup(error:String)
 }
+
 ```
 
 # Mvp Layer Example Using (Using Base Mvp Layer)
@@ -86,15 +108,17 @@ public protocol EventView: BaseView{
 ```Swift  
 
 public class EventPresenter: BasePresenter<EventView> {
-  
+
     func denemeRequest()  {
         self.restClient.getEventList(successHandler: {(response) in
             if(response.data != nil){
                 self.baseView?.onSuccessVideo(data: response.data!)
+            }else{
+                self.baseView?.errorPopup(error: response.errorMsg!)
             }
-        }, failHandler: {_ in
-            
-        })
+        }, failHandler: {error in
+            self.baseView?.errorPopup(error: error.localizedDescription)
+        }) 
     }
 }
 ```
