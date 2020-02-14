@@ -73,34 +73,38 @@ public class BasePresenter<V>{
 public protocol BaseView{
     func setUIData();
 }
-
 ```
-
- 
 
 # Mvp Layer Example Using (Using Base Mvp Layer)
 
 * EventView
 ```Swift  
 public protocol EventView: BaseView{
-    func onSuccessVideo();
+    func onSuccessVideo(data:[Event]);
 }
 ```
 
 * EventPresenter
 
 ```Swift  
+
 public class EventPresenter: BasePresenter<EventView> {
   
     func denemeRequest()  {
-        self.baseView!.onSuccessVideo()
+        self.restClient.getEventList(successHandler: {(response) in
+            if(response.data != nil){
+                self.baseView?.onSuccessVideo(data: response.data!)
+            }
+        }, failHandler: {_ in
+            
+        })
     }
 }
 ```
 
 * EventScreen
 
-```Swift  
+```Swift 
 import UIKit
 
 class EventScreen:BaseScreen<EventPresenter>,EventView{
@@ -110,7 +114,7 @@ class EventScreen:BaseScreen<EventPresenter>,EventView{
         presenter =  EventPresenter(baseView: self)
     }
     
-    func onSuccessVideo() {
+    func onSuccessVideo(data:[Event]) {
           
     }
       
