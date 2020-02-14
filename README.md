@@ -99,7 +99,7 @@ public protocol BaseView{
 * EventView
 ```Swift  
 public protocol EventView: BaseView{
-    func onSuccessVideo(data:[Event]);
+   func onSuccessEventData(data:[Event]);
 }
 ```
 
@@ -108,17 +108,18 @@ public protocol EventView: BaseView{
 ```Swift  
 
 public class EventPresenter: BasePresenter<EventView> {
-
+  
     func denemeRequest()  {
         self.restClient.getEventList(successHandler: {(response) in
             if(response.data != nil){
-                self.baseView?.onSuccessVideo(data: response.data!)
+                self.baseView?.onSuccessEventData(data: response.data!)
             }else{
                 self.baseView?.errorPopup(error: response.errorMsg!)
             }
         }, failHandler: {error in
             self.baseView?.errorPopup(error: error.localizedDescription)
-        }) 
+        })
+        
     }
 }
 ```
@@ -134,8 +135,8 @@ class EventScreen:BaseScreen<EventPresenter>,EventView{
     override func initPresenter() {
         presenter =  EventPresenter(baseView: self)
     }
-    
-    func onSuccessVideo(data:[Event]) {
+      
+    func onSuccessEventData(data:[Event]) {
           
     }
       
