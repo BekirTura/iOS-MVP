@@ -46,9 +46,6 @@ class BaseScreen<P>: UIViewController{
         return baseData
     }
 }
-
-
-
 ```
 
 * BasePresenter
@@ -210,6 +207,19 @@ public enum Environment{
 }
 ```
 
+* PostEventApiRequest
+```Swift  
+public class PostEventApiRequest: BaseApiRequest {
+    public var requestBodyObject: BaseObject?
+    public var requestMethod: RequestHttpMethod? = RequestHttpMethod.Post
+    public var requestPath: String = "/sltf6"
+
+    func setBodyObject(bodyObject: Event) {
+        self.requestBodyObject = bodyObject
+    }
+}
+```
+
 * GetEventListApiRequest
 ```Swift   
 public class GetEventListApiRequest: BaseApiRequest {    
@@ -217,10 +227,17 @@ public class GetEventListApiRequest: BaseApiRequest {
     public var requestPath: String = "/sltf6"
 }
 ```
+* Model
 
+path = model/
+* BaseObject
+```Swift   
+public class BaseObject:Codable{}
+```
+path = model/response
 * GetEventResponse
 ```Swift   
-public class GetEventResponse:Codable{
+public class GetEventResponse:BaseObject{
     
     
     var data : [Event]?
@@ -229,6 +246,21 @@ public class GetEventResponse:Codable{
           case data = "Data"
     }
  }
+``` 
+
+* Event
+ path = model/data
+
+```Swift
+public class Event: BaseObject {
+    var categoryName:String!
+    var cityName:String!
+     enum CodingKeys: String, CodingKey {
+        case categoryName = "CategoryName"
+        case cityName = "CityName"
+    }
+}
+
 ``` 
 
 
@@ -257,7 +289,8 @@ private func sendRequest<T:Codable>(_ request:BaseApiRequest,_ type :T.Type,succ
 public protocol IServiceHandler {
     func getEventList(successHandler:@escaping(GetEventResponse)->(),
                       failHandler:@escaping(Error)->())
-
+     
+    func postEvent(event:Event,successHandler: @escaping (GetEventResponse) -> (), failHandler: @escaping (Error) -> ())
 }
  ```
 
