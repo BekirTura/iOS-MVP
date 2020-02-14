@@ -9,18 +9,30 @@
 import UIKit
 
 class EventScreen:BaseScreen<EventPresenter>,EventView{
-  
-    let baseData2:BaseData = BaseData.shared
-    override func initPresenter() {
-        presenter =  EventPresenter(baseView: self)
+    //let baseData2:BaseData = BaseData.shared
+    
+    override func viewDidLoad() {
+           super.viewDidLoad()
     }
+    
+    override func initPresenter() {
+          presenter =  EventPresenter(baseView: self)
+    }
+    
+    override func initUI() {
+        
+    }
+    
+    override func initData() {
+        presenter?.denemeRequest()
+    }
+    
+  
     
     func onSuccessVideo(data:[Event]) {
           
     }
       
-    func setUIData() {
-          
-    }
+
       
 }

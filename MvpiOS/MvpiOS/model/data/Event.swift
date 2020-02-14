@@ -8,9 +8,9 @@
 
 import Foundation
 
-public class Event: Codable {
-    var categoryName:String
-    var cityName:String
+public class Event: BaseObject {
+    var categoryName:String!
+    var cityName:String!
      enum CodingKeys: String, CodingKey {
         case categoryName = "CategoryName"
         case cityName = "CityName"

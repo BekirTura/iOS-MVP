@@ -12,8 +12,6 @@ import Foundation
 public class EventPresenter: BasePresenter<EventView> {
   
     func denemeRequest()  {
-        
-
         self.restClient.getEventList(successHandler: {(response) in
             if(response.data != nil){
                 self.baseView?.onSuccessVideo(data: response.data!)
@@ -21,5 +19,11 @@ public class EventPresenter: BasePresenter<EventView> {
         }, failHandler: {_ in
             
         })
+        
+        self.restClient.postEvent(event: Event(), successHandler: { (response) in
+            
+        }) { (error) in
+        
+        }
     }
 }

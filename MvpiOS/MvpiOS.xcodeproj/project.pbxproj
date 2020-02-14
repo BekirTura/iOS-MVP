@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		05F22DCE8E8302AD51FE04BE /* libPods-MvpiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B831086545362B64F8C1C0C8 /* libPods-MvpiOS.a */; };
+		176BC2F923F6B33C00EFCC5D /* PostEventApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176BC2F823F6B33C00EFCC5D /* PostEventApiRequest.swift */; };
+		176BC30023F6B5FC00EFCC5D /* BaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176BC2FF23F6B5FC00EFCC5D /* BaseObject.swift */; };
 		17CF4F4623F57174002D0187 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CF4F4523F57174002D0187 /* AppDelegate.swift */; };
 		17CF4F4823F57174002D0187 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CF4F4723F57174002D0187 /* SceneDelegate.swift */; };
 		17CF4F4A23F57174002D0187 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CF4F4923F57174002D0187 /* ViewController.swift */; };
@@ -50,6 +52,8 @@
 
 /* Begin PBXFileReference section */
 		0C0A2E284777578BC500E411 /* Pods-MvpiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MvpiOS.debug.xcconfig"; path = "Target Support Files/Pods-MvpiOS/Pods-MvpiOS.debug.xcconfig"; sourceTree = "<group>"; };
+		176BC2F823F6B33C00EFCC5D /* PostEventApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEventApiRequest.swift; sourceTree = "<group>"; };
+		176BC2FF23F6B5FC00EFCC5D /* BaseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseObject.swift; sourceTree = "<group>"; };
 		17CF4F4223F57174002D0187 /* MvpiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MvpiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17CF4F4523F57174002D0187 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17CF4F4723F57174002D0187 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +111,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		176BC30223F6B90F00EFCC5D /* request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
 		17CF4F3923F57174002D0187 = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +208,7 @@
 		17CF4F8B23F67E21002D0187 /* network */ = {
 			isa = PBXGroup;
 			children = (
+				17CF4F9A23F6902D002D0187 /* apirequest */,
 				17CF4F9323F68F6B002D0187 /* IServiceHandler.swift */,
 				17CF4F9223F68F6B002D0187 /* RestClient.swift */,
 			);
@@ -206,9 +218,10 @@
 		17CF4F8C23F67E27002D0187 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				176BC2FF23F6B5FC00EFCC5D /* BaseObject.swift */,
 				17CF4F9C23F69042002D0187 /* response */,
 				17CF4F9B23F6903B002D0187 /* data */,
-				17CF4F9A23F6902D002D0187 /* request */,
+				176BC30223F6B90F00EFCC5D /* request */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -229,13 +242,14 @@
 			path = util;
 			sourceTree = "<group>";
 		};
-		17CF4F9A23F6902D002D0187 /* request */ = {
+		17CF4F9A23F6902D002D0187 /* apirequest */ = {
 			isa = PBXGroup;
 			children = (
 				17CF4F9D23F6905E002D0187 /* BaseApiRequest.swift */,
 				17CF4F9E23F6905E002D0187 /* GetEventListApiRequest.swift */,
+				176BC2F823F6B33C00EFCC5D /* PostEventApiRequest.swift */,
 			);
-			path = request;
+			path = apirequest;
 			sourceTree = "<group>";
 		};
 		17CF4F9B23F6903B002D0187 /* data */ = {
@@ -433,6 +447,7 @@
 				17CF4FA423F69089002D0187 /* GetEventResponse.swift in Sources */,
 				17CF4FA023F6905E002D0187 /* GetEventListApiRequest.swift in Sources */,
 				17CF4F7B23F571D0002D0187 /* BasePresenter.swift in Sources */,
+				176BC2F923F6B33C00EFCC5D /* PostEventApiRequest.swift in Sources */,
 				17CF4FA223F69080002D0187 /* Event.swift in Sources */,
 				17CF4F8323F57EBD002D0187 /* EventScreen.swift in Sources */,
 				17CF4F9423F68F6B002D0187 /* RestClient.swift in Sources */,
@@ -444,6 +459,7 @@
 				17CF4F8723F57EFB002D0187 /* EventView.swift in Sources */,
 				17CF4F9F23F6905E002D0187 /* BaseApiRequest.swift in Sources */,
 				17CF4F4823F57174002D0187 /* SceneDelegate.swift in Sources */,
+				176BC30023F6B5FC00EFCC5D /* BaseObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

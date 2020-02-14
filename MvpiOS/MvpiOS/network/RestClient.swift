@@ -33,4 +33,11 @@ public class RestClient: IServiceHandler {
         sendRequest(request, GetEventResponse.self, successHandler: successHandler, failHandler: failHandler)
     }
     
+    public func postEvent(event:Event,successHandler: @escaping (GetEventResponse) -> (), failHandler: @escaping (Error) -> ()) {
+           let request = PostEventApiRequest();
+            request.setBodyObject(bodyObject: event )
+           sendRequest(request, GetEventResponse.self, successHandler: successHandler, failHandler: failHandler)
+    }
+       
+    
 }

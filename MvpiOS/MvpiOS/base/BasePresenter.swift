@@ -6,8 +6,6 @@
 //  Copyright © 2020 Bekir. All rights reserved.
 //
 
-import Foundation
-
 public class BasePresenter<V>{
     var baseView : V?
     

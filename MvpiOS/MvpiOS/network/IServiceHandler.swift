@@ -10,5 +10,7 @@ public protocol IServiceHandler {
 
     func getEventList(successHandler:@escaping(GetEventResponse)->(),
                       failHandler:@escaping(Error)->())
+    
+    func postEvent(event:Event,successHandler: @escaping (GetEventResponse) -> (), failHandler: @escaping (Error) -> ())
 
 }

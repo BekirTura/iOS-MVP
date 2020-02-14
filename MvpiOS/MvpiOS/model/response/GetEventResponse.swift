@@ -8,9 +8,9 @@
 
 import Foundation
 
-public class GetEventResponse:Codable{
+public class GetEventResponse:BaseObject{
     
-    
+  // Json  =>   {"Data":[{"CategoryName":"Deneme1","CityName":"City Name Deneme 2"},{"CategoryName":"Deneme2","CityName":"City Name Deneme 3"}]}
     var data : [Event]?
     
     enum CodingKeys: String, CodingKey {
